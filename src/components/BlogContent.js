@@ -1,7 +1,20 @@
-import React from "react";
+import React from 'react';
 
 function BlogContent(props) {
-  return <div id="blog-content">{props.articleText}</div>;
+   if (props.isPublished) {
+      return (
+         <div id="blog-content">
+            <h1>{props.articleText}</h1>
+            {props.minutesToRead === 1 ? (
+               <p>{props.minutesToRead} minute to read </p>
+            ) : (
+               <p>{props.minutesToRead} minutes to read </p>
+            )}
+         </div>
+      );
+   } else {
+      return null;
+   }
 }
 
 export default BlogContent;
